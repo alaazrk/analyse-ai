@@ -1,0 +1,44 @@
+{
+  "date": "2026-06-30",
+  "model": "groq/qwen/qwen3-32b",
+  "generated_at": "2026-06-30T21:44:12.903331",
+  "segments_analyses": {
+    "stock": {
+      "segment": "📦 Stock & Réapprovisionnement",
+      "status": "vide",
+      "response": "Aucune donnée disponible pour ce segment.",
+      "duration": 0
+    },
+    "purchases": {
+      "segment": "🛒 Commandes d'achat",
+      "status": "ok",
+      "response": "### Analyse de la dépendance excessive sur un fournisseur et tendances anormales\n\n#### **1. Dépendance excessive sur un fournisseur**\n- **Données fournies** : Une seule commande (1785000.00 DZD) provenant d'un fournisseur identifié par le code **TTTT** sur une période de 30 jours.\n- **Analyse** :\n  - **Dépendance totale** : La commande représente **100%** du volume d'achats sur cette période. Si ce fournisseur est le seul utilisé, cela indique une **dépendance critique**.\n  - **Risques associés** :\n    - **Interruption de l'approvisionnement** : Un problème avec ce fournisseur (retard, non-conformité, etc.) pourrait bloquer l'activité.\n    - **Manque de négociation** : Aucune pression concurrentielle pour obtenir des prix ou services plus avantageux.\n  - **Recommandations** :\n    - Vérifier si ce fournisseur est le seul utilisé **historiquement** ou si d'autres fournisseurs existent ailleurs (hors 30 jours).\n    - Diversifier les sources d'approvisionnement pour réduire les risques.\n\n---\n\n#### **2. Tendances anormales**\n- **Montant de la commande** : 1 785 000 DZD (soit ~20 000 €, selon le taux de change).\n  - **Analyse** :\n    - **Volume anormalement élevé** : Si ce montant est **très supérieur** à la moyenne des commandes habituelles, cela pourrait indiquer une anomalie (ex. : erreur de saisie, commande inexpliquée).\n    - **Contexte manquant** : Sans données historiques, il est difficile de juger si ce montant est \"normal\".\n  - **Recommandations** :\n    - Comparer avec des périodes antérieures pour identifier des écarts.\n    - Vérifier si la commande correspond à une **demande d'urgence** ou à un **stockage anticipé**.\n\n- **Délai de livraison** :\n  - **Date de commande** : 2026-06-02  \n  - **Date de réception** : 2026-06-30  \n  - **Délai** : 28 jours.\n  - **Analyse** :\n    - Ce délai est **long** pour une commande unique. Si c'est un cas isolé, cela peut être acceptable. Si récurrent, cela soulève des questions sur la fiabilité du fournisseur.\n  - **Recommandations** :\n    - Évaluer les délais moyens des fournisseurs pour identifier des écarts.\n    - Négocier des délais plus courts ou identifier des fournisseurs locaux.\n\n---\n\n#### **3. Points à investiguer**\n1. **Historique des achats** :\n   - Ce fournisseur est-il utilisé **régulièrement** ? Si oui, la dépendance est justifiée.\n   - Si non, vérifier si cette commande est une **exception** ou une **stratégie délibérée**.\n\n2. **Nature de la commande** :\n   - Est-ce un **produit stratégique** (ex. : matériel médical, composants critiques) nécessitant une dépendance unique ?\n   - Est-ce un **stock de sécurité** ou une erreur de gestion ?\n\n3. **Évaluation du fournisseur** :\n   - Le fournisseur **TTTT** est-il **certifié**, fiable, et conforme aux normes de l'entreprise ?\n   - A-t-il un historique de retards ou de non-conformités ?\n\n---\n\n### **Conclusion**\n- **Dépendance** : **Critique** (100% du volume d'achats sur 30 jours).\n- **Tendances anormales** :\n  - Montant élevé (à vérifier avec l'historique).\n  - Délai de livraison long (28 jours).\n- **Actions recommandées** :\n  1. Diversifier les fournisseurs pour réduire les risques.\n  2. Analyser l'historique des achats pour confirmer si ce fournisseur est utilisé régulièrement.\n  3. Évaluer la pertinence du montant et du délai de livraison dans le contexte de l'entreprise.\n\nSi vous fournissez des données historiques ou des détails sur d'autres fournisseurs, une analyse plus approfondie est possible.",
+      "duration": 7.6
+    },
+    "sales": {
+      "segment": "💰 Ventes",
+      "status": "vide",
+      "response": "Aucune donnée disponible pour ce segment.",
+      "duration": 0
+    },
+    "top_items": {
+      "segment": "🏆 Top articles",
+      "status": "vide",
+      "response": "Aucune donnée disponible pour ce segment.",
+      "duration": 0
+    },
+    "suppliers": {
+      "segment": "🏭 Fournisseurs & Paiements",
+      "status": "ok",
+      "response": "**Analyse des risques et recommandations :**\n\n### **1. Risques de rupture d'approvisionnement :**\n- **Factures impayées cumulées à 1 044 200,00** (3 fournisseurs concernés : TEST, TTTT).  \n- **3 factures en retard** (overdue), dont 2 factures de **TTTT** (785 000,00 dus pour une échéance le 2 juin 2026).  \n- **Risque critique** : Si les fournisseurs ne sont pas payés, ils pourraient suspendre la livraison de biens/services, surtout pour les fournisseurs clés (ex. TTTT, avec une dette de 785 000,00).  \n- **Diversification limitée** : Tous les fournisseurs sont algériens. Un risque géopolitique ou économique local pourrait amplifier les retards.\n\n---\n\n### **2. Paiements urgents à planifier :**\n#### **Priorité absolue :**  \n- **ACC-PINV-2026-00004 (TTTT)**  \n  - **Montant** : 785 000,00  \n  - **Échéance** : 2 juin 2026 (délai restant : ~28 jours)  \n  - **Action** :  \n    - **Négocier un paiement immédiat** pour éviter la suspension des livraisons.  \n    - Si impossible, **proposer un plan de paiement** (ex. versements fractionnés) pour préserver la relation.  \n\n#### **Autres factures en retard :**  \n- **ACC-PINV-2026-00002 (TTTT)**  \n  - **Montant** : 238 000,00  \n  - **Échéance** : 21 avril 2026 (délai dépassé de 49 jours).  \n- **ACC-PINV-2026-00001 (TEST)**  \n  - **Montant** : 21 200,00  \n  - **Échéance** : 3 mars 2026 (délai dépassé de 88 jours).  \n  - **Action** :  \n    - **Contacter les fournisseurs** pour clarifier les raisons des retards et proposer des solutions (ex. paiement partiel, report d'échéance).  \n    - **Évaluer la criticité** des fournisseurs (ex. TTTT semble être un fournisseur majeur).  \n\n---\n\n### **3. Recommandations :**\n1. **Planifier un cash flow immédiat** pour couvrir les 785 000,00 dus à TTTT.  \n2. **Renégocier les termes** avec les fournisseurs pour éviter des pénalités ou des ruptures.  \n3. **Diversifier les fournisseurs** si possible, pour réduire la dépendance à un pays (Algerie).  \n4. **Auditer les processus de paiement** pour éviter de nouveaux retards.  \n5. **Surveiller étroitement** les fournisseurs TTTT et TEST, qui représentent 99,9% des dettes.  \n\n---\n\n**Conclusion :**  \nLes risques de rupture sont **élevés** en cas de non-paiement des factures impayées, surtout pour TTTT. Une action urgente est requise pour sécuriser les approvisionnements et préserver la relation avec les fournisseurs.",
+      "duration": 5.1
+    }
+  },
+  "final_report": "ERREUR: Limite de requêtes atteinte — réessaie dans 1 minute.",
+  "summary": {
+    "segments_ok": 2,
+    "segments_vides": 3,
+    "segments_error": 0,
+    "total_duration": 12.7
+  }
+}
