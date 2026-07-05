@@ -1,0 +1,53 @@
+{
+  "date": "2026-07-02",
+  "summary": {
+    "revenus_total": 584164.0,
+    "couts_total": 86005550.0,
+    "marge_brute": -85421386.0,
+    "meilleur_mois": "2026-06",
+    "meilleur_mois_ca": 314964.0,
+    "meilleure_ville": "Algeria",
+    "meilleure_ville_ca": 584164.0,
+    "ca_par_mois": {
+      "2026-01": 269200.0,
+      "2026-06": 314964.0
+    },
+    "ca_par_territoire": {
+      "Algeria": 584164.0
+    },
+    "ca_par_client": {
+      "Test": 584164.0
+    },
+    "achats_par_fournisseur": {
+      "167 _ Mehdi Circulaire": 85029750.0,
+      "HICHEM": 714000.0,
+      "Fourn1": 261800.0
+    },
+    "ca_par_annee": {
+      "2026": 584164.0
+    },
+    "qualite_donnees": {
+      "clients_total": 2,
+      "clients_sans_territoire": 1,
+      "clients_sans_groupe": 1,
+      "pct_territoire_manquant": 50,
+      "factures_total": 2,
+      "factures_sans_territoire": 0,
+      "pct_factures_sans_terr": 0
+    },
+    "nb_clients": 2,
+    "nb_fournisseurs": 3,
+    "nb_articles": 500,
+    "nb_factures_vente": 2,
+    "nb_factures_achat": 4
+  },
+  "ai_report": "1. **RÉSUMÉ EXÉCUTIF**  \n- **Situation financière critique** : L'entreprise perd 85 millions de DZD, avec une marge négative de 14623%, montrant un déséquilibre entre coûts et revenus.  \n- **Dépendance à un client** : 100% des ventes proviennent d'un seul client (\"Test\"), ce qui représente un risque élevé de perte de revenus.  \n- **Coûts démesurés** : Les achats (86 millions DZD) sont 146 fois supérieurs aux revenus, indiquant un problème de gestion des fournisseurs.  \n- **Meilleur mois en hausse** : Le mois de juin 2026 a généré 314 964 DZD, soit une légère amélioration par rapport à janvier.  \n\n2. **ANALYSE DES PERFORMANCES**  \n- **Meilleur mois en 2026** : Juin 2026 a rapporté 314 964 DZD, soit une croissance de 17% par rapport à janvier, mais reste insuffisant pour couvrir les coûts.  \n- **Aucun revenu en dehors d'Algerie** : Toutes les ventes proviennent d'Algérie, sans diversification géographique.  \n- **Dépendance à un fournisseur** : 98% des coûts proviennent de \"Mehdi Circulaire\", créant un risque de rupture d'approvisionnement.  \n- **Perte nette réelle** : L'entreprise perd 85 millions DZD, soit un déficit équivalent à 146 fois ses revenus annuels.  \n\n3. **QUALITÉ DES DONNÉES**  \n- **Clients sans territoire** : 50% des clients n'ont pas de ville associée, rendant l'analyse géographique impossible.  \n- **Données incomplètes** : Seules 2 factures sont enregistrées, limitant l'analyse des tendances.  \n- **Standardisation urgente** : Les noms de fournisseurs (ex : \"167 _ Mehdi Circulaire\") doivent être uniformisés pour éviter les erreurs.  \n- **Actions ERPNext** : Activer les champs obligatoires pour \"ville\" et \"territoire\" lors de la création des clients et factures.  \n\n4. **RECOMMANDATIONS D'ACHAT**  \n- **Négocier avec Mehdi Circulaire** : Réduire les coûts de 85 millions DZD en exigeant des remises ou des délais de paiement plus longs.  \n- **Diversifier les fournisseurs** : Ajouter des fournisseurs locaux pour réduire la dépendance à un seul partenaire.  \n- **Optimiser les stocks** : Acheter uniquement les produits en demande pour éviter les invendus.  \n- **Surveiller les coûts** : Établir un budget mensuel strict pour contrôler les dépenses.  \n\n5. **STRATÉGIE COMMERCIALE**  \n- **Ciblage géographique** : Étendre les ventes à d'autres villes algériennes (ex : Alger, Oran) pour réduire le risque de perte d'un client.  \n- **Promotions pour \"Test\"** : Proposer des abonnements ou des réductions pour fidéliser le client principal.  \n- **Augmenter les ventes de 20%** : Lancer une campagne ciblée sur les réseaux sociaux et offrir des échantillons gratuits en juillet.  \n\n6. **PRÉFÉRENCES ET HABITUDES CLIENTS**  \n- **Client unique** : \"Test\" représente 100% des ventes, sans historique de fidélité ou de renouvellement.  \n- **Achats irréguliers** : Aucune saisonnalité identifiée, mais les commandes semblent ponctuelles.  \n- **Manque de données** : Impossible d'analyser les comportements en raison de l'absence de données historiques.  \n\n7. **PRÉVISIONS**  \n- **Objectif réaliste** : Viser 600 000 DZD en juillet 2026, soit une croissance de 3% par rapport au mois précédent.  \n- **Risque de perte** : Les coûts restent critiques, nécessitant une réduction de 80% pour atteindre l'équilibre.  \n- **Tendance à surveiller** : Si le client \"Test\" cesse ses achats, les revenus chuteront à zéro.  \n- **Plan B** : Développer un portefeuille de 3-5 clients d'ici septembre pour réduire la dépendance.",
+  "charts": [
+    "reports/charts/ca_par_mois.png",
+    "reports/charts/ca_par_territoire.png",
+    "reports/charts/ca_par_client.png",
+    "reports/charts/achats_par_fournisseur.png",
+    "reports/charts/revenus_couts_marge.png",
+    "reports/charts/ca_par_annee.png"
+  ]
+}

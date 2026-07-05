@@ -1,0 +1,169 @@
+{
+  "date": "2026-07-04",
+  "model": "groq/qwen/qwen3-32b",
+  "generated_at": "2026-07-04T22:15:37.172675",
+  "segments_analyses": {
+    "stock": {
+      "segment": "📦 Stock & Réapprovisionnement",
+      "status": "vide",
+      "response": "0 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    },
+    "purchases": {
+      "segment": "🛒 Commandes d'achat",
+      "status": "vide",
+      "response": "0 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    },
+    "sales": {
+      "segment": "💰 Ventes",
+      "status": "vide",
+      "response": "0 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    },
+    "top_items": {
+      "segment": "🏆 Top articles",
+      "status": "vide",
+      "response": "0 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    },
+    "item_prices": {
+      "segment": "💰 Historique prix",
+      "status": "ok",
+      "response": "2 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    },
+    "suppliers": {
+      "segment": "🏭 Fournisseurs & Paiements",
+      "status": "ok",
+      "response": "6 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    }
+  },
+  "final_report": "# Rapport Supply Chain et Gestion des Achats\n\n---\n\n## 1. ACTIONS URGENTES (à faire aujourd'hui)\n\n### a) TABLEAU DES FACTURES IMPAYÉES :\n| Numéro           | Fournisseur | Montant (DZD) | Échéance     | Retard (jours) |\n|------------------|-------------|---------------|--------------|----------------|\n| ACC-PINV-2026-00001 | TEST        | 21,200.00     | 2026-03-03   | 123            |\n| ACC-PINV-2026-00002 | TTTT        | 238,000.00    | 2026-04-21   | 85             |\n| ACC-PINV-2026-00004 | TTTT        | 785,000.00    | 2026-06-02   | 32             |\n\n### b) TOTAL DÛ PAR FOURNISSEUR :\n- **TEST** : 21,200.00 DZD  \n- **TTTT** : 1,023,000.00 DZD  \n\n### c) TOTAL GÉNÉRAL impayé :  \n**1,044,200.00 DZD**\n\n### d) Risques si non payé :\n- **Rupture de fourniture** : TTTT représente 99.1% des achats historiques (2,380,000 DZD sur 2,401,200 DZD). Un impayé prolongé pourrait bloquer la chaîne d'approvisionnement.  \n- **Pénalités contractuelles** : Les factures en retard de plus de 90 jours (TEST) risquent des pénalités légales.  \n- **Réputation fournisseurs** : Les fournisseurs TTTT et TEST pourraient réduire la priorité des commandes.\n\n---\n\n## 2. RECOMMANDATIONS D'ACHAT  \n**Aucun article en stock faible n'a été identifié dans le système ERP.**  \n**Recommandation :**  \n- Diversifier les achats en utilisant les fournisseurs **SARL OFISCO** et **SARL SIAD** (actifs mais non utilisés récemment).  \n- Évaluer les prix des articles suivants via les fournisseurs locaux (ex : Siderie de Rouiba pour les tôles inox).\n\n---\n\n## 3. STRATEGIE DE LA SEMAINE  \n### Tendances et risques :  \n- **Concentration excessive** : TTTT représente 99.1% des achats historiques. Cela constitue un risque critique (rupture, dépendance).  \n- **Priorité aux paiements urgents** : Régler les factures de TTTT (785,000 DZD) avant le 2026-07-09 pour éviter des pénalités.  \n- **Évaluation des fournisseurs alternatifs** :  \n  - **SARL OFISCO** et **SARL SIAD** pourraient prendre 10-15% du volume d'achats mensuels.  \n  - **xhfgh** et **dilmi mohamed amine** pourraient être testés pour des articles non critiques.\n\n---\n\n## 4. OBSERVATIONS GENERALES  \n\n### TABLEAU FINANCIER :  \n| Total achats (30j) | Total impayés | % impayés/achats | Risque       |  \n|--------------------|---------------|------------------|--------------|  \n| 785,000.00 DZD     | 1,044,200.00  | 133%             | **Élevé**    |  \n\n### Points d'attention :  \n- **Dépendance à TTTT** : 99.1% des achats historiques. Urgence de diversifier.  \n- **Factures en retard** : 3 factures impayées représentant 43.5% du total des achats historiques.  \n- **Révision des politiques de paiement** : Mettre en place un système de rappels automatisés pour les é",
+  "summary": {
+    "segments_ok": 2,
+    "segments_vides": 4,
+    "segments_error": 0,
+    "total_duration": 0
+  },
+  "raw_data": {
+    "invoices": [
+      {
+        "name": "ACC-PINV-2026-00001",
+        "supplier": "TEST",
+        "posting_date": "2026-03-03",
+        "due_date": "2026-03-03",
+        "grand_total": 21200.0,
+        "outstanding_amount": 21200.0,
+        "status": "Overdue"
+      },
+      {
+        "name": "ACC-PINV-2026-00002",
+        "supplier": "TTTT",
+        "posting_date": "2026-04-21",
+        "due_date": "2026-04-21",
+        "grand_total": 238000.0,
+        "outstanding_amount": 238000.0,
+        "status": "Overdue"
+      },
+      {
+        "name": "ACC-PINV-2026-00004",
+        "supplier": "TTTT",
+        "posting_date": "2026-06-02",
+        "due_date": "2026-06-02",
+        "grand_total": 1785000.0,
+        "outstanding_amount": 785000.0,
+        "status": "Overdue"
+      }
+    ],
+    "purchases": [],
+    "suppliers": [
+      {
+        "name": "dilmi mohamed amine",
+        "supplier_name": "dilmi mohamed amine ",
+        "supplier_group": "All Supplier Groups",
+        "country": "Algeria",
+        "on_hold": 0
+      },
+      {
+        "name": "SARL OFISCO",
+        "supplier_name": "SARL OFISCO",
+        "supplier_group": "All Supplier Groups",
+        "country": "Algeria",
+        "on_hold": 0
+      },
+      {
+        "name": "SARL SIAD",
+        "supplier_name": "SARL SIAD",
+        "supplier_group": "All Supplier Groups",
+        "country": "Algeria",
+        "on_hold": 0
+      },
+      {
+        "name": "TEST",
+        "supplier_name": "TEST",
+        "supplier_group": "All Supplier Groups",
+        "country": "Algeria",
+        "on_hold": 0
+      },
+      {
+        "name": "TTTT",
+        "supplier_name": "TTTT",
+        "supplier_group": "All Supplier Groups",
+        "country": "Algeria",
+        "on_hold": 0
+      },
+      {
+        "name": "xhfgh",
+        "supplier_name": "xhfgh",
+        "supplier_group": "All Supplier Groups",
+        "country": "Algeria",
+        "on_hold": 0
+      }
+    ],
+    "low_stock": [],
+    "item_prices": [
+      {
+        "supplier": "TTTT",
+        "total_achats": 2380000.0,
+        "nb_factures": 3,
+        "dernier_achat": "2026-06-02",
+        "factures": [
+          {
+            "name": "ACC-PINV-2026-00002",
+            "grand_total": 238000.0,
+            "date": "2026-04-21",
+            "status": "Overdue"
+          },
+          {
+            "name": "ACC-PINV-2026-00003",
+            "grand_total": 357000.0,
+            "date": "2026-05-11",
+            "status": "Paid"
+          },
+          {
+            "name": "ACC-PINV-2026-00004",
+            "grand_total": 1785000.0,
+            "date": "2026-06-02",
+            "status": "Overdue"
+          }
+        ]
+      },
+      {
+        "supplier": "TEST",
+        "total_achats": 21200.0,
+        "nb_factures": 1,
+        "dernier_achat": "2026-03-03",
+        "factures": [
+          {
+            "name": "ACC-PINV-2026-00001",
+            "grand_total": 21200.0,
+            "date": "2026-03-03",
+            "status": "Overdue"
+          }
+        ]
+      }
+    ]
+  }
+}

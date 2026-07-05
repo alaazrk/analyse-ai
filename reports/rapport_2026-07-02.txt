@@ -1,0 +1,55 @@
+RAPPORT D'ANALYSE ERP — 2026-07-02
+Modèle : groq/qwen/qwen3-32b
+Généré le : 2026-07-02T23:42:58.391326
+============================================================
+
+ANALYSES PAR SEGMENT
+------------------------------------------------------------
+
+▶ 📦 Stock & Réapprovisionnement
+  Statut : vide | Durée : 0s
+
+0 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+▶ 🛒 Commandes d'achat
+  Statut : vide | Durée : 0s
+
+0 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+▶ 💰 Ventes
+  Statut : vide | Durée : 0s
+
+0 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+▶ 🏆 Top articles
+  Statut : vide | Durée : 0s
+
+0 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+▶ 💰 Historique prix
+  Statut : ok | Durée : 0s
+
+3 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+▶ 🏭 Fournisseurs & Paiements
+  Statut : ok | Durée : 0s
+
+3 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+
+SYNTHÈSE FINALE — RECOMMANDATIONS
+============================================================
+
+ERREUR: Limite de requêtes atteinte — réessaie dans 1 minute.

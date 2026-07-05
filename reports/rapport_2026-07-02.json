@@ -1,0 +1,50 @@
+{
+  "date": "2026-07-02",
+  "model": "groq/qwen/qwen3-32b",
+  "generated_at": "2026-07-02T23:42:58.391326",
+  "segments_analyses": {
+    "stock": {
+      "segment": "📦 Stock & Réapprovisionnement",
+      "status": "vide",
+      "response": "0 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    },
+    "purchases": {
+      "segment": "🛒 Commandes d'achat",
+      "status": "vide",
+      "response": "0 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    },
+    "sales": {
+      "segment": "💰 Ventes",
+      "status": "vide",
+      "response": "0 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    },
+    "top_items": {
+      "segment": "🏆 Top articles",
+      "status": "vide",
+      "response": "0 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    },
+    "item_prices": {
+      "segment": "💰 Historique prix",
+      "status": "ok",
+      "response": "3 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    },
+    "suppliers": {
+      "segment": "🏭 Fournisseurs & Paiements",
+      "status": "ok",
+      "response": "3 éléments collectés — inclus dans la synthèse finale.",
+      "duration": 0
+    }
+  },
+  "final_report": "ERREUR: Limite de requêtes atteinte — réessaie dans 1 minute.",
+  "summary": {
+    "segments_ok": 2,
+    "segments_vides": 4,
+    "segments_error": 0,
+    "total_duration": 0
+  }
+}

@@ -1,0 +1,52 @@
+RAPPORT BI — 2026-07-02
+============================================================
+
+Revenus     : 584,164 DZD
+Coûts       : 86,005,550 DZD
+Marge brute : -85,421,386 DZD
+Meilleur mois  : 2026-06 (314,964 DZD)
+Meilleure ville: Algeria (584,164 DZD)
+
+============================================================
+
+ANALYSE IA
+
+1. **RÉSUMÉ EXÉCUTIF**  
+- **Situation financière critique** : L'entreprise perd 85 millions de DZD, avec une marge négative de 14623%, montrant un déséquilibre entre coûts et revenus.  
+- **Dépendance à un client** : 100% des ventes proviennent d'un seul client ("Test"), ce qui représente un risque élevé de perte de revenus.  
+- **Coûts démesurés** : Les achats (86 millions DZD) sont 146 fois supérieurs aux revenus, indiquant un problème de gestion des fournisseurs.  
+- **Meilleur mois en hausse** : Le mois de juin 2026 a généré 314 964 DZD, soit une légère amélioration par rapport à janvier.  
+
+2. **ANALYSE DES PERFORMANCES**  
+- **Meilleur mois en 2026** : Juin 2026 a rapporté 314 964 DZD, soit une croissance de 17% par rapport à janvier, mais reste insuffisant pour couvrir les coûts.  
+- **Aucun revenu en dehors d'Algerie** : Toutes les ventes proviennent d'Algérie, sans diversification géographique.  
+- **Dépendance à un fournisseur** : 98% des coûts proviennent de "Mehdi Circulaire", créant un risque de rupture d'approvisionnement.  
+- **Perte nette réelle** : L'entreprise perd 85 millions DZD, soit un déficit équivalent à 146 fois ses revenus annuels.  
+
+3. **QUALITÉ DES DONNÉES**  
+- **Clients sans territoire** : 50% des clients n'ont pas de ville associée, rendant l'analyse géographique impossible.  
+- **Données incomplètes** : Seules 2 factures sont enregistrées, limitant l'analyse des tendances.  
+- **Standardisation urgente** : Les noms de fournisseurs (ex : "167 _ Mehdi Circulaire") doivent être uniformisés pour éviter les erreurs.  
+- **Actions ERPNext** : Activer les champs obligatoires pour "ville" et "territoire" lors de la création des clients et factures.  
+
+4. **RECOMMANDATIONS D'ACHAT**  
+- **Négocier avec Mehdi Circulaire** : Réduire les coûts de 85 millions DZD en exigeant des remises ou des délais de paiement plus longs.  
+- **Diversifier les fournisseurs** : Ajouter des fournisseurs locaux pour réduire la dépendance à un seul partenaire.  
+- **Optimiser les stocks** : Acheter uniquement les produits en demande pour éviter les invendus.  
+- **Surveiller les coûts** : Établir un budget mensuel strict pour contrôler les dépenses.  
+
+5. **STRATÉGIE COMMERCIALE**  
+- **Ciblage géographique** : Étendre les ventes à d'autres villes algériennes (ex : Alger, Oran) pour réduire le risque de perte d'un client.  
+- **Promotions pour "Test"** : Proposer des abonnements ou des réductions pour fidéliser le client principal.  
+- **Augmenter les ventes de 20%** : Lancer une campagne ciblée sur les réseaux sociaux et offrir des échantillons gratuits en juillet.  
+
+6. **PRÉFÉRENCES ET HABITUDES CLIENTS**  
+- **Client unique** : "Test" représente 100% des ventes, sans historique de fidélité ou de renouvellement.  
+- **Achats irréguliers** : Aucune saisonnalité identifiée, mais les commandes semblent ponctuelles.  
+- **Manque de données** : Impossible d'analyser les comportements en raison de l'absence de données historiques.  
+
+7. **PRÉVISIONS**  
+- **Objectif réaliste** : Viser 600 000 DZD en juillet 2026, soit une croissance de 3% par rapport au mois précédent.  
+- **Risque de perte** : Les coûts restent critiques, nécessitant une réduction de 80% pour atteindre l'équilibre.  
+- **Tendance à surveiller** : Si le client "Test" cesse ses achats, les revenus chuteront à zéro.  
+- **Plan B** : Développer un portefeuille de 3-5 clients d'ici septembre pour réduire la dépendance.

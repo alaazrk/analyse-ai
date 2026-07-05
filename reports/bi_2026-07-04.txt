@@ -1,0 +1,85 @@
+RAPPORT BI — 2026-07-04
+============================================================
+
+Revenus     : 1,235,425 DZD
+Coûts       : 2,401,200 DZD
+Marge brute : -1,165,775 DZD
+Meilleur mois  : 2026-04 (743,750 DZD)
+Meilleure ville: Algeria (806,225 DZD)
+
+============================================================
+
+ANALYSE IA
+
+### 1. **RÉSUMÉ EXÉCUTIF**  
+- **Perte nette** : L'entreprise affiche une perte de **1,165,775 DZD** (-94% de marge brute), indiquant une situation financière critique.  
+- **Meilleur mois** : Avril 2026 avec **743,750 DZD** de revenus, mais insuffisant pour compenser les coûts.  
+- **Clients clés** : **TEST Clinet** (803,250 DZD) et **D.E.Medea** (429,200 DZD) représentent **98%** des revenus.  
+- **Fournisseur dominant** : **TTTT** (2,380,000 DZD), responsable de **99%** des coûts d'achats.  
+
+---
+
+### 2. **ANALYSE DES PERFORMANCES**  
+- **Meilleur mois** : Avril 2026 (**743,750 DZD**), suivi de janvier (**429,200 DZD**).  
+- **Meilleure ville** : **Algerie** (**806,225 DZD**), mais **429,200 DZD** de revenus sont marqués comme "Non défini".  
+- **Tendances observées** :  
+  - Les revenus sont très inégaux (ex. : 62,475 DZD en mars vs 743,750 DZD en avril).  
+  - **Perte réelle** : L'entreprise perd **1,165,775 DZD** sur la période, avec des coûts dépassant les revenus de **1,165,775 DZD**.  
+- **Gains réels** : Aucun gain net n'est enregistré (perte de **1,165,775 DZD**).  
+
+---
+
+### 3. **QUALITÉ DES DONNÉES**  
+- **Problèmes identifiés** :  
+  - **100% des factures** n'ont pas de territoire associé.  
+  - **14% des clients** (1/7) manquent de données géographiques.  
+- **Actions à effectuer dans ERPNext** :  
+  1. **Normaliser les champs obligatoires** : Rendre le champ "Territoire" obligatoire pour les clients et les factures.  
+  2. **Auditer les données existantes** : Corriger les valeurs manquantes pour les clients et factures.  
+  3. **Former l'équipe** : Sensibiliser aux bonnes pratiques de saisie des données.  
+
+---
+
+### 4. **RECOMMANDATIONS D'ACHAT**  
+- **Optimiser les coûts avec TTTT** :  
+  - Renégocier les prix avec **TTTT** (responsable de **99%** des coûts).  
+  - Évaluer des fournisseurs alternatifs pour réduire la dépendance à un seul fournisseur.  
+- **Réduire les achats inutiles** :  
+  - Analyser les produits/Services achetés à **TTTT** pour éliminer les dépenses non rentables.  
+- **Aligner les achats sur les revenus** :  
+  - Réduire les coûts d'achats de **1,165,775 DZD** pour atteindre l'équilibre.  
+
+---
+
+### 5. **STRATÉGIE COMMERCIALE**  
+- **Ciblage géographique** :  
+  - Prioriser **Algerie** (meilleure ville) et identifier des zones à potentiel non exploré.  
+- **Promotions** :  
+  - Offrir des remises ciblées à **TEST Clinet** et **D.E.Medea** pour augmenter leur fidélité.  
+  - Diversifier les produits vendus à ces clients pour réduire la dépendance.  
+- **Objectif de +20% de ventes ce mois** :  
+  1. **Cibler les clients clés** : Proposer des offres exclusives à **TEST Clinet** et **D.E.Medea**.  
+  2. **Lancer une campagne marketing** : Utiliser les données de **Algerie** pour attirer de nouveaux clients locaux.  
+  3. **Réduire les coûts** : Optimiser les achats pour améliorer la marge.  
+
+---
+
+### 6. **PRÉFÉRENCES ET HABITUDES CLIENTS**  
+- **Clients récurrents** :  
+  - **TEST Clinet** et **D.E.Medea** sont les seuls clients significatifs identifiés.  
+  - Aucune donnée sur les achats récurrents ou les saisons d'achat.  
+- **Habitudes d'achat** :  
+  - Les clients achètent principalement en avril (743,750 DZD) et janvier (429,200 DZD), mais les données sont fragmentées.  
+- **Recommandations** :  
+  - Analyser les historiques d'achat de **TEST Clinet** et **D.E.Medea** pour identifier des modèles.  
+  - Diversifier la clientèle pour réduire le risque de dépendance.  
+
+---
+
+### 7. **PRÉVISIONS**  
+- **Estimation du CA du prochain mois** :  
+  - Basé sur le meilleur mois (**743,750 DZD**) et la tendance actuelle, un objectif réaliste est de **900,000 DZD**.  
+- **Objectif à atteindre** :  
+  - **1,125,000 DZD** (20% de croissance par rapport au meilleur mois).  
+  - **Stratégies** :  
+    1. Renégocier les co

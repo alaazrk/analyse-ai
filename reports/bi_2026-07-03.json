@@ -1,0 +1,53 @@
+{
+  "date": "2026-07-03",
+  "summary": {
+    "revenus_total": 584164.0,
+    "couts_total": 86005550.0,
+    "marge_brute": -85421386.0,
+    "meilleur_mois": "2026-06",
+    "meilleur_mois_ca": 314964.0,
+    "meilleure_ville": "Algeria",
+    "meilleure_ville_ca": 584164.0,
+    "ca_par_mois": {
+      "2026-01": 269200.0,
+      "2026-06": 314964.0
+    },
+    "ca_par_territoire": {
+      "Algeria": 584164.0
+    },
+    "ca_par_client": {
+      "Test": 584164.0
+    },
+    "achats_par_fournisseur": {
+      "167 _ Mehdi Circulaire": 85029750.0,
+      "HICHEM": 714000.0,
+      "Fourn1": 261800.0
+    },
+    "ca_par_annee": {
+      "2026": 584164.0
+    },
+    "qualite_donnees": {
+      "clients_total": 2,
+      "clients_sans_territoire": 1,
+      "clients_sans_groupe": 1,
+      "pct_territoire_manquant": 50,
+      "factures_total": 2,
+      "factures_sans_territoire": 0,
+      "pct_factures_sans_terr": 0
+    },
+    "nb_clients": 2,
+    "nb_fournisseurs": 3,
+    "nb_articles": 500,
+    "nb_factures_vente": 2,
+    "nb_factures_achat": 4
+  },
+  "ai_report": "### 1. **RÉSUMÉ EXÉCUTIF**  \n- **Situation financière critique** : L'entreprise affiche une perte nette de **-85,421,386 DZD** (marge brute de -14623 %), avec des coûts d'achats (86,005,550 DZD) dépassant de loin les revenus (584,164 DZD).  \n- **Dépendance à un seul client** : 100 % des ventes proviennent du client **Test**, ce qui représente un risque élevé de rupture de flux.  \n- **Concentration géographique** : Toutes les ventes proviennent d'**Algeria**, sans diversification territoriale.  \n- **Dépendance à un fournisseur** : **167 _ Mehdi Circulaire** couvre **98,8 %** des coûts d'achats, ce qui constitue un risque de rupture d'approvisionnement.  \n\n---\n\n### 2. **ANALYSE DES PERFORMANCES**  \n- **Meilleur mois** : Juin 2026 (**314,964 DZD**), soit une progression de **17 %** par rapport à janvier 2026 (**269,200 DZD**).  \n- **Meilleure ville** : **Algeria** (584,164 DZD), avec une absence de données pour 50 % des clients (territoire non renseigné).  \n- **Réalité des gains** : L'entreprise **perd 85,421,386 DZD** nettement, avec un ratio coût/vente de **147,3 : 1**.  \n- **Tendances observées** :  \n  - Progression saisonnière de janvier à juin (+17 %), mais insuffisante pour couvrir les coûts.  \n  - Aucune diversification client ou fournisseur.  \n\n---\n\n### 3. **QUALITÉ DES DONNÉES**  \n- **Problèmes identifiés** :  \n  - **Clients sans territoire** : 1/2 (50 %), ce qui empêche une analyse géographique fine.  \n  - **Données insuffisantes** : Absence de données sur les produits, les volumes vendus, ou les fréquences d'achat.  \n- **Actions dans ERPNext** :  \n  1. **Normaliser les territoires** : Forcer la saisie du territoire pour tous les clients (règle obligatoire dans ERPNext).  \n  2. **Standardiser les noms de fournisseurs** : Supprimer les espaces inutiles (ex. \"167 _ Mehdi Circulaire\" → \"Mehdi Circulaire\").  \n  3. **Ajouter des champs obligatoires** : Inclure \"Produit\" et \"Volume\" dans les factures pour une analyse détaillée.  \n\n---\n\n### 4. **RECOMMANDATIONS D'ACHAT**  \n- **Optimiser les coûts d'approvisionnement** :  \n  - Négocier avec **167 _ Mehdi Circulaire** pour réduire les coûts unitaires (actuellement 85,029,750 DZD).  \n  - Diversifier les fournisseurs pour réduire la dépendance à un seul partenaire.  \n- **Réduire les stocks inutiles** : Aucune donnée sur les stocks, mais les coûts d'achats suggèrent un surplus ou des inefficacités.  \n- **Prioriser les achats à haute marge** : Aucune donnée sur les produits, mais il est urgent de cibler des fournisseurs à coût inférieur.  \n\n---\n\n### 5. **STRATÉGIE COMMERCIALE**  \n- **Ciblage géographique** :  \n  - Maintenir la présence en **Algeria**, mais explorer des villes adjacentes (ex. Oran, Constantine) via des partenariats locaux.  \n- **Promotions** :  \n  - Proposer une offre exclusive au client **Test** pour sécuriser sa fidélité (ex. remise sur volume).  \n  - Diversifier la clientèle en ciblant des clients similaires (ex. \"Test 2\", \"Test 3\").  \n- **Objectif de +20 % de ventes en juillet** :  \n  1. Lancer une campagne ciblée vers **Algeria** avec un rabais de 10 % pour les nouveaux clients.  \n  2. Renégocier les tarifs avec **167 _ Mehdi Circulaire** pour réduire les coûts d'achat.  \n  3. Utiliser les données de juin (314,964 DZD) comme base pour un objectif de **377,957 DZD** en juillet.  \n\n---\n\n### 6. **PRÉFÉRENCES ET HABITUDES CLIENTS**  \n- **Analyse limitée** : Seul le client **Test** est identifié, sans données sur les produits achetés ou les fréquences d'achat.  \n- **Hypothèses** :  \n  - Le client **Test** achète probablement en une seule fois (facture unique de 584,164 DZD).  \n  - Aucun historique de fidélité ou de récurrence.  \n- **Actions** :  \n  - Créer un programme de fidélisation pour **Test** (ex. points de récompense).  \n  - Identifier d'autres clients potentiels avec des profils similaires.  \n\n---\n\n### 7. **PRÉVISIONS**  \n- **Estimation du CA juillet 2026** :  \n  - Basé sur la progression de +17 % (janvier → juin), un objectif réaliste serait **377,957 DZD** (20 % de progression par rapport au meilleur mois).  \n- **Objectif à atteindre** :  \n  - **377,957 DZD** en juillet, avec une marge brute positive (ex. 50 %) en optimisant les coûts d'achats.  \n- **Risques** :  \n  - Dépendance à **Test** et à **167 _ Mehdi Circulaire**.  \n  - Données insuffisantes pour des prévisions fiables.  \n\n---  \n**Note** : Les données fournies sont insuffisantes pour une analyse approfondie. Une mise à jour des systèmes ERPNext et une diversification client/fournisseur sont impératives.",
+  "charts": [
+    "reports/charts/ca_par_mois.png",
+    "reports/charts/ca_par_territoire.png",
+    "reports/charts/ca_par_client.png",
+    "reports/charts/achats_par_fournisseur.png",
+    "reports/charts/revenus_couts_marge.png",
+    "reports/charts/ca_par_annee.png"
+  ]
+}

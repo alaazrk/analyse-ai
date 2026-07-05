@@ -227,14 +227,16 @@ def run_market_search(erpnext_raw: dict) -> dict:
                 "item_name": item.get("item_name", ""),
             })
 
-    # Priorité 3 : articles depuis les commandes d'achat récentes
+    # Priorité 3 : articles actifs dans ERPNext (Item)
+    # C'est le meilleur fallback — vrais noms d'articles
     if len(items) < MAX_ITEMS:
-        purchases = erpnext_raw.get("purchases", [])
-        for p in purchases[:MAX_ITEMS - len(items)]:
-            items.append({
-                "item_code": p.get("name", ""),
-                "item_name": p.get("supplier", ""),
-            })
+        all_items = erpnext_raw.get("all_items", [])
+        for item in all_items[:MAX_ITEMS - len(items)]:
+            code = item.get("name", "")
+            name = item.get("item_name", code)
+            # Ignore les articles avec des noms trop génériques
+            if len(name) > 5:
+                items.append({"item_code": code, "item_name": name})
 
     if not items:
         log.info("Aucun article disponible pour la recherche marché")

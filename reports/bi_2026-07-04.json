@@ -1,0 +1,56 @@
+{
+  "date": "2026-07-04",
+  "summary": {
+    "revenus_total": 1235425.0,
+    "couts_total": 2401200.0,
+    "marge_brute": -1165775.0,
+    "meilleur_mois": "2026-04",
+    "meilleur_mois_ca": 743750.0,
+    "meilleure_ville": "Algeria",
+    "meilleure_ville_ca": 806225.0,
+    "ca_par_mois": {
+      "2026-01": 429200.0,
+      "2026-03": 62475.0,
+      "2026-04": 743750.0
+    },
+    "ca_par_territoire": {
+      "Algeria": 806225.0,
+      "Non défini": 429200.0
+    },
+    "ca_par_client": {
+      "TEST Clinet": 803250.0,
+      "D.E.Medea": 429200.0,
+      "Client RAVE": 2975.0
+    },
+    "achats_par_fournisseur": {
+      "TTTT": 2380000.0,
+      "TEST": 21200.0
+    },
+    "ca_par_annee": {
+      "2026": 1235425.0
+    },
+    "qualite_donnees": {
+      "clients_total": 7,
+      "clients_sans_territoire": 1,
+      "clients_sans_groupe": 0,
+      "pct_territoire_manquant": 14,
+      "factures_total": 4,
+      "factures_sans_territoire": 4,
+      "pct_factures_sans_terr": 100
+    },
+    "nb_clients": 7,
+    "nb_fournisseurs": 6,
+    "nb_articles": 29,
+    "nb_factures_vente": 4,
+    "nb_factures_achat": 4
+  },
+  "ai_report": "### 1. **RÉSUMÉ EXÉCUTIF**  \n- **Perte nette** : L'entreprise affiche une perte de **1,165,775 DZD** (-94% de marge brute), indiquant une situation financière critique.  \n- **Meilleur mois** : Avril 2026 avec **743,750 DZD** de revenus, mais insuffisant pour compenser les coûts.  \n- **Clients clés** : **TEST Clinet** (803,250 DZD) et **D.E.Medea** (429,200 DZD) représentent **98%** des revenus.  \n- **Fournisseur dominant** : **TTTT** (2,380,000 DZD), responsable de **99%** des coûts d'achats.  \n\n---\n\n### 2. **ANALYSE DES PERFORMANCES**  \n- **Meilleur mois** : Avril 2026 (**743,750 DZD**), suivi de janvier (**429,200 DZD**).  \n- **Meilleure ville** : **Algerie** (**806,225 DZD**), mais **429,200 DZD** de revenus sont marqués comme \"Non défini\".  \n- **Tendances observées** :  \n  - Les revenus sont très inégaux (ex. : 62,475 DZD en mars vs 743,750 DZD en avril).  \n  - **Perte réelle** : L'entreprise perd **1,165,775 DZD** sur la période, avec des coûts dépassant les revenus de **1,165,775 DZD**.  \n- **Gains réels** : Aucun gain net n'est enregistré (perte de **1,165,775 DZD**).  \n\n---\n\n### 3. **QUALITÉ DES DONNÉES**  \n- **Problèmes identifiés** :  \n  - **100% des factures** n'ont pas de territoire associé.  \n  - **14% des clients** (1/7) manquent de données géographiques.  \n- **Actions à effectuer dans ERPNext** :  \n  1. **Normaliser les champs obligatoires** : Rendre le champ \"Territoire\" obligatoire pour les clients et les factures.  \n  2. **Auditer les données existantes** : Corriger les valeurs manquantes pour les clients et factures.  \n  3. **Former l'équipe** : Sensibiliser aux bonnes pratiques de saisie des données.  \n\n---\n\n### 4. **RECOMMANDATIONS D'ACHAT**  \n- **Optimiser les coûts avec TTTT** :  \n  - Renégocier les prix avec **TTTT** (responsable de **99%** des coûts).  \n  - Évaluer des fournisseurs alternatifs pour réduire la dépendance à un seul fournisseur.  \n- **Réduire les achats inutiles** :  \n  - Analyser les produits/Services achetés à **TTTT** pour éliminer les dépenses non rentables.  \n- **Aligner les achats sur les revenus** :  \n  - Réduire les coûts d'achats de **1,165,775 DZD** pour atteindre l'équilibre.  \n\n---\n\n### 5. **STRATÉGIE COMMERCIALE**  \n- **Ciblage géographique** :  \n  - Prioriser **Algerie** (meilleure ville) et identifier des zones à potentiel non exploré.  \n- **Promotions** :  \n  - Offrir des remises ciblées à **TEST Clinet** et **D.E.Medea** pour augmenter leur fidélité.  \n  - Diversifier les produits vendus à ces clients pour réduire la dépendance.  \n- **Objectif de +20% de ventes ce mois** :  \n  1. **Cibler les clients clés** : Proposer des offres exclusives à **TEST Clinet** et **D.E.Medea**.  \n  2. **Lancer une campagne marketing** : Utiliser les données de **Algerie** pour attirer de nouveaux clients locaux.  \n  3. **Réduire les coûts** : Optimiser les achats pour améliorer la marge.  \n\n---\n\n### 6. **PRÉFÉRENCES ET HABITUDES CLIENTS**  \n- **Clients récurrents** :  \n  - **TEST Clinet** et **D.E.Medea** sont les seuls clients significatifs identifiés.  \n  - Aucune donnée sur les achats récurrents ou les saisons d'achat.  \n- **Habitudes d'achat** :  \n  - Les clients achètent principalement en avril (743,750 DZD) et janvier (429,200 DZD), mais les données sont fragmentées.  \n- **Recommandations** :  \n  - Analyser les historiques d'achat de **TEST Clinet** et **D.E.Medea** pour identifier des modèles.  \n  - Diversifier la clientèle pour réduire le risque de dépendance.  \n\n---\n\n### 7. **PRÉVISIONS**  \n- **Estimation du CA du prochain mois** :  \n  - Basé sur le meilleur mois (**743,750 DZD**) et la tendance actuelle, un objectif réaliste est de **900,000 DZD**.  \n- **Objectif à atteindre** :  \n  - **1,125,000 DZD** (20% de croissance par rapport au meilleur mois).  \n  - **Stratégies** :  \n    1. Renégocier les co",
+  "charts": [
+    "reports/charts/ca_par_mois.png",
+    "reports/charts/ca_par_territoire.png",
+    "reports/charts/ca_par_client.png",
+    "reports/charts/achats_par_fournisseur.png",
+    "reports/charts/revenus_couts_marge.png",
+    "reports/charts/ca_par_annee.png"
+  ]
+}

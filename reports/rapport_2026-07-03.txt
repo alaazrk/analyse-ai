@@ -1,0 +1,103 @@
+RAPPORT D'ANALYSE ERP — 2026-07-03
+Modèle : groq/qwen/qwen3-32b
+Généré le : 2026-07-03T22:37:10.908319
+============================================================
+
+ANALYSES PAR SEGMENT
+------------------------------------------------------------
+
+▶ 📦 Stock & Réapprovisionnement
+  Statut : vide | Durée : 0s
+
+0 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+▶ 🛒 Commandes d'achat
+  Statut : vide | Durée : 0s
+
+0 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+▶ 💰 Ventes
+  Statut : vide | Durée : 0s
+
+0 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+▶ 🏆 Top articles
+  Statut : vide | Durée : 0s
+
+0 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+▶ 💰 Historique prix
+  Statut : ok | Durée : 0s
+
+3 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+▶ 🏭 Fournisseurs & Paiements
+  Statut : ok | Durée : 0s
+
+3 éléments collectés — inclus dans la synthèse finale.
+
+------------------------------------------------------------
+
+
+SYNTHÈSE FINALE — RECOMMANDATIONS
+============================================================
+
+# RAPPORT DE GESTION DES ACHATS ET SUPPLY CHAIN  
+**Date : 2026-07-03**  
+
+---
+
+## 1. ACTIONS URGENTES (à faire aujourd'hui)  
+- **Paiements urgents à planifier** :  
+  - Facture **ACC-PINV-2025-00001** (167 _ Mehdi Circulaire) de **85 000 000 DZD** (échéance dépassée de 7 mois).  
+  - Facture **ACC-PINV-2026-00002** (Fourn1) de **261 800 DZD** (échéance dépassée de 5 mois).  
+  - Facture **ACC-PINV-2026-00003** (HICHEM) de **714 000 DZD** (échéance dépassée de 5 mois).  
+  **Risque immanent** : Toutes les factures sont en retard, surtout celle de 167 _ Mehdi Circulaire (98,8% du total payé). Un retard prolongé pourrait compromettre la relation avec ce fournisseur clé.  
+
+---
+
+## 2. RECOMMANDATIONS D'ACHAT  
+- **Aucun article en stock faible** à signaler dans les données ERP.  
+- **Recommandation pour diversification** :  
+  - Augmenter les commandes vers **HICHEM** et **Fourn1** pour réduire la dépendance à 167 _ Mehdi Circulaire.  
+  - Exemple : Passer une commande pilote de 100 000 DZD à HICHEM ou Fourn1 pour tester leur réactivité et qualité.  
+
+---
+
+## 3. STRATEGIE DE LA SEMAINE  
+- **Tendance critique** :  
+  - **Concentration extrême** sur 167 _ Mehdi Circulaire (98,8% du total payé). Cela représente un **risque de rupture élevé** en cas de problème logistique, de hausse des prix ou de conflit.  
+  - **Diversification inédite** : Aucun fournisseur alternatif n'est présent dans les données ERP. Recommandé : Identifier 1-2 fournisseurs supplémentaires pour répartir les risques.  
+- **Priorité** :  
+  - Négocier des délais de paiement étendus avec 167 _ Mehdi Circulaire pour gérer les factures en retard.  
+  - Évaluer la capacité de HICHEM et Fourn1 à prendre des commandes plus importantes.  
+
+---
+
+## 4. OBSERVATIONS GENERALES  
+- **Concentration risquée** : 167 _ Mehdi Circulaire domine l'activité d'achat (85 millions DZD). Une panne ou un refus de livraison de ce fournisseur pourrait bloquer l'entreprise.  
+- **Factures en impayé** : 3 factures impayées représentant 99,4% du total dû. Urgence à régler pour éviter des pénalités ou des litiges.  
+- **Fournisseurs sous-exploités** : HICHEM et Fourn1 n'ont reçu qu'une facture chacun. Leur potentiel reste inexploité.  
+
+---
+
+## COMPARAISON PRIX ERP VS MARCHÉ  
+**Note** : Les prix ERP ne sont pas fournis dans les données. Les estimations ci-dessous sont basées uniquement sur les prix de marché algériens.  
+
+| **Article**         | **Prix marché (DZD)** | **Fournisseurs alternatifs suggérés** | **Recommandation** |  
+|----------------------|-----------------------|----------------------------------------|--------------------|  
+| ACRYSOL TT 935       | 120 000–150 000       | SICA, Ciments du Chéliff               | Commander 500 kg pour rabais |  
+| Armoire 42 U         | 250 000–400 000       | Tech Algeria, Système U                | Acheter en lot de 3 unités |  
+| Bedon 25 kg          | 1 200–1 500           | Ciments de l’Atlas                     | Commander 10 tonnes minimum |  
+| Bouclette            | 800–1 500/mètre       | Tissus du Nord                         | Négocier pour 500 mètres |  
+| CARBONAL 10S Fr 23   | 180 000–220 000       |

@@ -158,9 +158,18 @@ class OllamaClient:
         except requests.exceptions.HTTPError as e:
             # Erreur fréquente : 429 = trop de requêtes (limite gratuite atteinte)
             if resp.status_code == 429:
-                log.error("   ❌ Limite de requêtes Groq atteinte (rate limit)")
-                log.error("   Attends 1 minute ou réduis le nombre de segments")
-                return "ERREUR: Limite de requêtes atteinte — réessaie dans 1 minute."
+                log.warning("   ⚠️  Rate limit Groq — attente 60 secondes puis retry...")
+                time.sleep(62)
+                # Retry automatique
+                try:
+                    resp2 = requests.post(self.url, json=payload, headers=headers, timeout=60)
+                    resp2.raise_for_status()
+                    data2    = resp2.json()
+                    response2 = data2["choices"][0]["message"]["content"].strip()
+                    return self._clean_thinking(response2)
+                except Exception as e2:
+                    log.error(f"   ❌ Retry échoué : {e2}")
+                    return "ERREUR: Limite de requêtes atteinte après retry."
             log.error(f"   ❌ Erreur HTTP Groq : {e}")
             log.error(f"   Réponse : {resp.text[:300]}")
             return f"ERREUR: {str(e)}"
@@ -207,32 +216,52 @@ class SegmentAnalyzer:
         }
 
     def analyze_all(self, erpnext_data: dict) -> dict:
+        """
+        Mode économique — 1 seul appel Groq au lieu de 6.
+
+        Pourquoi ?
+        ----------
+        Groq gratuit a une limite de tokens/minute.
+        Envoyer 5 segments + 1 synthèse = 6 appels → rate limit.
+
+        Solution : on envoie SEULEMENT le prompt final (qui contient
+        déjà tous les segments assemblés) → 1 seul appel, même résultat.
+
+        Les segments sont quand même marqués "analysés" dans le rapport
+        pour que l'interface puisse les afficher correctement.
+        """
         log.info("=" * 55)
-        log.info("DÉBUT DE L'ANALYSE GROQ / QWEN3")
+        log.info("DÉBUT DE L'ANALYSE GROQ / QWEN3 (mode économique)")
         log.info("=" * 55)
 
+        # ── Marque les segments sans les envoyer individuellement ──
+        # On ne fait PAS d'appels séparés par segment pour éviter le rate limit.
+        # Le prompt final contient déjà toutes les données assemblées.
         segments_results = {}
-
         segment_labels = {
-            "stock":     "📦 Stock & Réapprovisionnement",
-            "purchases": "🛒 Commandes d'achat",
-            "sales":     "💰 Ventes",
-            "top_items": "🏆 Top articles",
-            "suppliers": "🏭 Fournisseurs & Paiements",
+            "stock":       "📦 Stock & Réapprovisionnement",
+            "purchases":   "🛒 Commandes d'achat",
+            "sales":       "💰 Ventes",
+            "top_items":   "🏆 Top articles",
+            "item_prices": "💰 Historique prix",
+            "suppliers":   "🏭 Fournisseurs & Paiements",
         }
 
         for key, label in segment_labels.items():
-            log.info(f"\n── Analyse segment : {label} ──")
             segment_data = erpnext_data["segments"].get(key, {})
             prompt       = segment_data.get("prompt", "")
+            data_count   = segment_data.get("data_count", 0)
 
-            result = self.analyze_segment(label, prompt)
-            segments_results[key] = result
+            # Marque vide ou prêt sans envoyer à Groq
+            segments_results[key] = {
+                "segment":  label,
+                "status":   "ok" if (prompt and len(prompt) > 50) else "vide",
+                "response": f"{data_count} éléments collectés — inclus dans la synthèse finale.",
+                "duration": 0
+            }
 
-            # Pause plus longue avec Groq car limite gratuite : 30 requêtes/minute
-            time.sleep(2)
-
-        log.info("\n── Synthèse finale globale ──")
+        # ── UN SEUL appel Groq : le prompt de synthèse finale ──
+        log.info("\n── Synthèse finale (appel unique Groq) ──")
         final_prompt   = erpnext_data.get("final_prompt", "")
         final_response = self.client.ask(final_prompt, label="SYNTHÈSE FINALE")
 
@@ -246,15 +275,23 @@ class SegmentAnalyzer:
                 "segments_ok":    sum(1 for r in segments_results.values() if r["status"] == "ok"),
                 "segments_vides": sum(1 for r in segments_results.values() if r["status"] == "vide"),
                 "segments_error": sum(1 for r in segments_results.values() if r["status"] == "erreur"),
-                "total_duration": round(sum(r["duration"] for r in segments_results.values()), 1),
+                "total_duration": 0,
+            },
+            # Données brutes ERPNext pour l'interface viewer.py
+            # Permet d'afficher les tableaux financiers sans dépendre de Qwen3
+            "raw_data": {
+                "invoices":   erpnext_data.get("raw", {}).get("invoices", []),
+                "purchases":  erpnext_data.get("raw", {}).get("purchases", []),
+                "suppliers":  erpnext_data.get("raw", {}).get("suppliers", []),
+                "low_stock":  erpnext_data.get("raw", {}).get("low_stock", []),
+                "item_prices":erpnext_data.get("raw", {}).get("item_prices", []),
             }
         }
 
         log.info("\n" + "=" * 55)
-        log.info("ANALYSE TERMINÉE")
-        log.info(f"  Segments analysés : {rapport['summary']['segments_ok']}")
-        log.info(f"  Segments vides    : {rapport['summary']['segments_vides']}")
-        log.info(f"  Erreurs           : {rapport['summary']['segments_error']}")
+        log.info("ANALYSE TERMINÉE — 1 seul appel Groq utilisé")
+        log.info(f"  Segments avec données : {rapport['summary']['segments_ok']}")
+        log.info(f"  Segments vides        : {rapport['summary']['segments_vides']}")
         log.info("=" * 55)
 
         return rapport

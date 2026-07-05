@@ -1,0 +1,86 @@
+RAPPORT BI — 2026-07-03
+============================================================
+
+Revenus     : 584,164 DZD
+Coûts       : 86,005,550 DZD
+Marge brute : -85,421,386 DZD
+Meilleur mois  : 2026-06 (314,964 DZD)
+Meilleure ville: Algeria (584,164 DZD)
+
+============================================================
+
+ANALYSE IA
+
+### 1. **RÉSUMÉ EXÉCUTIF**  
+- **Situation financière critique** : L'entreprise affiche une perte nette de **-85,421,386 DZD** (marge brute de -14623 %), avec des coûts d'achats (86,005,550 DZD) dépassant de loin les revenus (584,164 DZD).  
+- **Dépendance à un seul client** : 100 % des ventes proviennent du client **Test**, ce qui représente un risque élevé de rupture de flux.  
+- **Concentration géographique** : Toutes les ventes proviennent d'**Algeria**, sans diversification territoriale.  
+- **Dépendance à un fournisseur** : **167 _ Mehdi Circulaire** couvre **98,8 %** des coûts d'achats, ce qui constitue un risque de rupture d'approvisionnement.  
+
+---
+
+### 2. **ANALYSE DES PERFORMANCES**  
+- **Meilleur mois** : Juin 2026 (**314,964 DZD**), soit une progression de **17 %** par rapport à janvier 2026 (**269,200 DZD**).  
+- **Meilleure ville** : **Algeria** (584,164 DZD), avec une absence de données pour 50 % des clients (territoire non renseigné).  
+- **Réalité des gains** : L'entreprise **perd 85,421,386 DZD** nettement, avec un ratio coût/vente de **147,3 : 1**.  
+- **Tendances observées** :  
+  - Progression saisonnière de janvier à juin (+17 %), mais insuffisante pour couvrir les coûts.  
+  - Aucune diversification client ou fournisseur.  
+
+---
+
+### 3. **QUALITÉ DES DONNÉES**  
+- **Problèmes identifiés** :  
+  - **Clients sans territoire** : 1/2 (50 %), ce qui empêche une analyse géographique fine.  
+  - **Données insuffisantes** : Absence de données sur les produits, les volumes vendus, ou les fréquences d'achat.  
+- **Actions dans ERPNext** :  
+  1. **Normaliser les territoires** : Forcer la saisie du territoire pour tous les clients (règle obligatoire dans ERPNext).  
+  2. **Standardiser les noms de fournisseurs** : Supprimer les espaces inutiles (ex. "167 _ Mehdi Circulaire" → "Mehdi Circulaire").  
+  3. **Ajouter des champs obligatoires** : Inclure "Produit" et "Volume" dans les factures pour une analyse détaillée.  
+
+---
+
+### 4. **RECOMMANDATIONS D'ACHAT**  
+- **Optimiser les coûts d'approvisionnement** :  
+  - Négocier avec **167 _ Mehdi Circulaire** pour réduire les coûts unitaires (actuellement 85,029,750 DZD).  
+  - Diversifier les fournisseurs pour réduire la dépendance à un seul partenaire.  
+- **Réduire les stocks inutiles** : Aucune donnée sur les stocks, mais les coûts d'achats suggèrent un surplus ou des inefficacités.  
+- **Prioriser les achats à haute marge** : Aucune donnée sur les produits, mais il est urgent de cibler des fournisseurs à coût inférieur.  
+
+---
+
+### 5. **STRATÉGIE COMMERCIALE**  
+- **Ciblage géographique** :  
+  - Maintenir la présence en **Algeria**, mais explorer des villes adjacentes (ex. Oran, Constantine) via des partenariats locaux.  
+- **Promotions** :  
+  - Proposer une offre exclusive au client **Test** pour sécuriser sa fidélité (ex. remise sur volume).  
+  - Diversifier la clientèle en ciblant des clients similaires (ex. "Test 2", "Test 3").  
+- **Objectif de +20 % de ventes en juillet** :  
+  1. Lancer une campagne ciblée vers **Algeria** avec un rabais de 10 % pour les nouveaux clients.  
+  2. Renégocier les tarifs avec **167 _ Mehdi Circulaire** pour réduire les coûts d'achat.  
+  3. Utiliser les données de juin (314,964 DZD) comme base pour un objectif de **377,957 DZD** en juillet.  
+
+---
+
+### 6. **PRÉFÉRENCES ET HABITUDES CLIENTS**  
+- **Analyse limitée** : Seul le client **Test** est identifié, sans données sur les produits achetés ou les fréquences d'achat.  
+- **Hypothèses** :  
+  - Le client **Test** achète probablement en une seule fois (facture unique de 584,164 DZD).  
+  - Aucun historique de fidélité ou de récurrence.  
+- **Actions** :  
+  - Créer un programme de fidélisation pour **Test** (ex. points de récompense).  
+  - Identifier d'autres clients potentiels avec des profils similaires.  
+
+---
+
+### 7. **PRÉVISIONS**  
+- **Estimation du CA juillet 2026** :  
+  - Basé sur la progression de +17 % (janvier → juin), un objectif réaliste serait **377,957 DZD** (20 % de progression par rapport au meilleur mois).  
+- **Objectif à atteindre** :  
+  - **377,957 DZD** en juillet, avec une marge brute positive (ex. 50 %) en optimisant les coûts d'achats.  
+- **Risques** :  
+  - Dépendance à **Test** et à **167 _ Mehdi Circulaire**.  
+  - Données insuffisantes pour des prévisions fiables.  
+
+---  
+**Note** : Les données fournies sont insuffisantes pour une analyse approfondie. Une mise à jour des systèmes ERPNext et une diversification client/fournisseur sont impératives.

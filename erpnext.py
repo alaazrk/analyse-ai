@@ -422,85 +422,82 @@ class ERPNextClient:
         return top
 
     # ─────────────────────────────────────────────
-    # Segment 4bis : Prix d'achat RÉELS par fournisseur
+    # Segment 4bis : Historique achats par fournisseur
     # ─────────────────────────────────────────────
     def get_item_prices(self) -> list:
         """
-        Récupère les prix RÉELLEMENT PAYÉS dans le passé,
-        article par article, fournisseur par fournisseur.
+        Récupère l'historique des montants payés par fournisseur
+        depuis Purchase Invoice (factures d'achat validées).
 
-        Pourquoi Purchase Order Item plutôt que Item Price ?
-        ------------------------------------------------------
-        Item Price = une liste de prix générique configurée manuellement,
-                     pas forcément liée à un fournisseur précis.
+        Pourquoi Purchase Invoice et pas Purchase Order Item ?
+        -------------------------------------------------------
+        Frappe bloque les champs des tables enfants (Purchase Order Item,
+        Purchase Invoice Item) via l'API REST — on ne peut pas récupérer
+        item_code + rate directement.
 
-        Purchase Order Item = les LIGNES de tes commandes d'achat passées.
-                     Chaque ligne contient : item_code, rate (prix payé),
-                     et qty. Le fournisseur est sur le document parent
-                     (Purchase Order).
+        Solution : on utilise Purchase Invoice (table parent) qui est
+        accessible et donne : supplier + grand_total + posting_date.
 
-        C'est donc la VRAIE source pour comparer "chez qui j'ai payé
-        le moins cher pour cet article" — basé sur des faits, pas
-        une configuration.
+        Ça permet à Qwen3 de comparer le volume d'achat par fournisseur
+        et d'identifier quel fournisseur coûte le plus/moins cher globalement.
 
-        Étape 1 : récupère les commandes (Purchase Order) avec leur fournisseur
-        Étape 2 : récupère les lignes d'articles (Purchase Order Item)
-        Étape 3 : croise les deux en Python pour avoir item + prix + fournisseur
-
-        URLs appelées :
-        Étape 1 : GET /api/resource/Purchase Order
-                      ?fields=["name","supplier"]
-                      &filters=[["docstatus","=",1]]
-
-        Étape 2 : GET /api/resource/Purchase Order Item
-                      ?fields=["item_code","item_name","rate","qty","parent"]
-                      &filters=[["parent","in",[...]]]
+        URL appelée :
+        GET /api/resource/Purchase Invoice
+            ?fields=["name","supplier","grand_total","posting_date","status"]
+            &filters=[["docstatus","=",1]]
         """
-        log.info("Segment 4bis — Historique prix d'achat (Purchase Order Item)...")
+        log.info("Segment 4bis — Historique achats par fournisseur (Purchase Invoice)...")
 
-        # ── Étape 1 : commandes validées avec leur fournisseur ──
-        orders = self._get(
-            doctype="Purchase Order",
+        invoices = self._get(
+            doctype="Purchase Invoice",
             filters=[["docstatus", "=", 1]],
-            fields=["name", "supplier", "transaction_date"],
-            limit=300
+            fields=[
+                "name",
+                "supplier",
+                "grand_total",    # montant total de la facture
+                "posting_date",   # date de la facture
+                "status",         # Paid / Unpaid / Overdue
+            ],
+            limit=200
         )
-        log.info(f"   {len(orders)} commandes d'achat trouvées")
+        log.info(f"   {len(invoices)} factures d'achat trouvées")
 
-        if not orders:
-            log.info("   Aucune commande — pas d'historique de prix")
+        if not invoices:
             return []
 
-        # Dictionnaire : nom de commande → fournisseur
-        order_supplier = {o.get("name"): o.get("supplier") for o in orders}
-        noms_commandes = list(order_supplier.keys())
+        # ── Agrégation par fournisseur ──
+        # On regroupe toutes les factures par fournisseur pour avoir :
+        # - le total payé à chaque fournisseur
+        # - le nombre de factures
+        # - la date du dernier achat
+        aggregated = {}
+        for inv in invoices:
+            supplier = inv.get("supplier", "Inconnu")
+            total    = float(inv.get("grand_total") or 0)
+            date     = inv.get("posting_date", "")
 
-        # ── Étape 2 : lignes d'articles de ces commandes ──
-        lines = self._get(
-            doctype="Purchase Order Item",
-            filters=[["parent", "in", noms_commandes]],
-            fields=["item_code", "item_name", "rate", "qty", "parent"],
-            limit=500
-        )
-        log.info(f"   {len(lines)} lignes d'articles récupérées")
-
-        # ── Croisement Python : ajoute le nom du fournisseur à chaque ligne ──
-        result = []
-        for line in lines:
-            supplier = order_supplier.get(line.get("parent"))
-            rate     = float(line.get("rate") or 0)
-            if rate <= 0:
-                continue  # ignore les lignes sans prix valide
-            result.append({
-                "item_code": line.get("item_code"),
-                "item_name": line.get("item_name", ""),
-                "supplier":  supplier,
-                "rate":      rate,
-                "qty":       float(line.get("qty") or 0),
-                "order":     line.get("parent"),
+            if supplier not in aggregated:
+                aggregated[supplier] = {
+                    "supplier":        supplier,
+                    "total_achats":    0.0,
+                    "nb_factures":     0,
+                    "dernier_achat":   "",
+                    "factures":        []
+                }
+            aggregated[supplier]["total_achats"] += total
+            aggregated[supplier]["nb_factures"]  += 1
+            if date > aggregated[supplier]["dernier_achat"]:
+                aggregated[supplier]["dernier_achat"] = date
+            aggregated[supplier]["factures"].append({
+                "name":        inv.get("name"),
+                "grand_total": total,
+                "date":        date,
+                "status":      inv.get("status"),
             })
 
-        log.info(f"   {len(result)} entrées de prix avec fournisseur")
+        # Tri par total décroissant — fournisseur le plus utilisé en premier
+        result = sorted(aggregated.values(), key=lambda x: x["total_achats"], reverse=True)
+        log.info(f"   {len(result)} fournisseurs avec historique d'achats")
         return result
 
     # ─────────────────────────────────────────────
@@ -672,54 +669,31 @@ class PromptBuilder:
 
     def build_item_prices_prompt(self, prices: list) -> str:
         """
-        Construit le prompt avec l'historique RÉEL des prix payés,
-        regroupé par article pour que Qwen3 puisse comparer
-        directement les fournisseurs entre eux pour le même article.
-
-        Exemple de regroupement :
-            tube 25 1 :
-              - TTTT : 950 DZD (commande PUR-ORD-2026-00003)
-              - SARL OFISCO : 1020 DZD (commande PUR-ORD-2026-00005)
+        Construit le prompt avec l'historique des achats par fournisseur.
+        Basé sur Purchase Invoice (montants totaux par facture).
         """
         if not prices:
             return ""
 
-        # ── Regroupement par item_code ──
-        grouped = {}
-        for p in prices:
-            code = p.get("item_code", "INCONNU")
-            if code not in grouped:
-                grouped[code] = {
-                    "item_name": p.get("item_name", ""),
-                    "fournisseurs": []
-                }
-            grouped[code]["fournisseurs"].append({
-                "supplier": p.get("supplier", "Inconnu"),
-                "rate":     p.get("rate", 0),
-                "order":    p.get("order", ""),
-            })
-
-        # Limite à 15 articles pour ne pas dépasser le contexte
-        grouped_items = list(grouped.items())[:15]
-
         lines = []
-        for code, info in grouped_items:
-            lines.append(f"  Article: {code} ({info['item_name']})")
-            # Trie les fournisseurs du moins cher au plus cher
-            fournisseurs_tries = sorted(info["fournisseurs"], key=lambda f: f["rate"])
-            for f in fournisseurs_tries:
-                lines.append(
-                    f"      - {f['supplier']} : {f['rate']:.2f} DZD (commande {f['order']})"
-                )
+        total_global = 0.0
+        for p in prices[:10]:
+            total_global += p.get("total_achats", 0)
+            lines.append(
+                f"  - {p.get('supplier')} | "
+                f"Total payé: {p.get('total_achats', 0):.2f} DZD | "
+                f"Nb factures: {p.get('nb_factures', 0)} | "
+                f"Dernier achat: {p.get('dernier_achat', 'N/A')}"
+            )
 
         return (
-            f"=== HISTORIQUE PRIX D'ACHAT RÉELS PAR FOURNISSEUR ({len(grouped_items)} articles) ===\n"
+            f"=== HISTORIQUE ACHATS PAR FOURNISSEUR ({len(prices)} fournisseurs) ===\n"
             f"Date : {TODAY}\n"
-            f"Ces prix sont triés du moins cher au plus cher pour chaque article.\n\n"
+            f"Total global payé à tous les fournisseurs : {total_global:.2f} DZD\n\n"
             + "\n".join(lines)
-            + "\n\nQuestion : Pour chaque article ayant plusieurs fournisseurs, "
-              "lequel est le moins cher ? Y a-t-il un fournisseur systématiquement "
-              "plus avantageux ?\n"
+            + "\n\nQuestion : Quel fournisseur représente le plus gros volume d'achat ? "
+              "Est-ce une concentration risquée ? Quel fournisseur recommandes-tu "
+              "pour diversifier les achats ?\n"
         )
 
     def build_suppliers_prompt(self, suppliers: list, invoices: list) -> str:
@@ -750,29 +724,67 @@ class PromptBuilder:
             + "\n\nQuestion : Risques de rupture ? Paiements urgents à planifier ?\n"
         )
 
-    def build_final_synthesis_prompt(self, all_sections: list) -> str:
-        """Assemble toutes les sections en un prompt final pour Qwen3."""
+    def build_final_synthesis_prompt(
+        self,
+        all_sections: list,
+        noms_fournisseurs: list = None,
+        noms_articles: list = None,
+    ) -> str:
+        """
+        Assemble toutes les sections en un prompt final pour Qwen3.
+        Injecte la liste exacte des noms autorisés pour bloquer les hallucinations.
+        """
         combined = "\n\n".join([s for s in all_sections if s])
+
+        # ── Liste des noms autorisés ──
+        fournisseurs_str = (
+            "\n".join([f"  • {n}" for n in noms_fournisseurs])
+            if noms_fournisseurs else "  (aucun fournisseur trouvé)"
+        )
+        articles_str = (
+            "\n".join([f"  • {n}" for n in noms_articles[:20]])
+            if noms_articles else "  (aucun article en stock faible)"
+        )
+
         return (
             f"Tu es un expert en gestion des achats et supply chain.\n"
             f"Voici les données ERP de l'entreprise au {TODAY}.\n\n"
             f"{combined}\n\n"
-            f"{'─'*60}\n"
+            f"{'═'*60}\n"
+            f"LISTE EXACTE DES NOMS AUTORISÉS DANS TON RAPPORT\n"
+            f"{'═'*60}\n"
+            f"FOURNISSEURS (utilise uniquement ces noms) :\n"
+            f"{fournisseurs_str}\n\n"
+            f"ARTICLES EN STOCK FAIBLE (utilise uniquement ces noms) :\n"
+            f"{articles_str}\n\n"
+            f"{'═'*60}\n"
+            f"⛔ INTERDICTIONS STRICTES :\n"
+            f"• NE JAMAIS inventer un nom qui n'est pas dans la liste ci-dessus\n"
+            f"• Si tu veux citer un fournisseur non listé → écris exactement : [non dans ERPNext]\n"
+            f"• Si tu veux citer un article non listé → écris exactement : [non dans ERPNext]\n"
+            f"• Toute hallucination de nom sera une erreur grave\n"
+            f"{'═'*60}\n\n"
             f"Produis un rapport structuré avec exactement ces 4 sections :\n\n"
             f"1. ACTIONS URGENTES (à faire aujourd'hui)\n"
-            f"   Articles à commander immédiatement, paiements urgents, risques imminents.\n\n"
+            f"   a) TABLEAU DES FACTURES IMPAYÉES :\n"
+            f"      Pour CHAQUE facture impayée cite : Numéro | Fournisseur | Montant | Échéance | Retard (jours)\n"
+            f"   b) TOTAL DÛ PAR FOURNISSEUR :\n"
+            f"      Calcule et affiche le total dû à chaque fournisseur.\n"
+            f"   c) TOTAL GÉNÉRAL impayé (somme de toutes les factures).\n"
+            f"   d) Risques si non payé.\n"
+            f"   Cite uniquement les fournisseurs de la liste autorisée.\n\n"
             f"2. RECOMMANDATIONS D'ACHAT\n"
-            f"   Liste : article | quantité suggérée | fournisseur recommandé | "
-            f"prix connu (si disponible) | justification.\n"
-            f"   Si plusieurs fournisseurs ont un prix pour le même article, "
-            f"compare-les et recommande le moins cher SAUF si un risque "
-            f"(retard de paiement, rupture) le déconseille.\n\n"
+            f"   TABLEAU : Article | Quantité suggérée | Fournisseur | Prix estimé | Justification\n"
+            f"   Fournisseur = uniquement ceux dans la liste autorisée.\n"
+            f"   Si aucun article en stock faible → dis-le clairement.\n\n"
             f"3. STRATEGIE DE LA SEMAINE\n"
-            f"   Tendances, opportunités, risques à anticiper sur 7 jours.\n\n"
+            f"   Tendances et risques basés uniquement sur les données réelles.\n\n"
             f"4. OBSERVATIONS GENERALES\n"
-            f"   Points d'attention fournisseurs, ventes, trésorerie.\n\n"
-            f"Réponds en français. Utilise des tirets pour chaque point.\n"
-            f"{'─'*60}\n"
+            f"   TABLEAU FINANCIER :\n"
+            f"      Total achats (30j) | Total impayés | % impayés/achats | Risque\n"
+            f"   Points d'attention basés uniquement sur les données réelles.\n\n"
+            f"Réponds en français. Utilise des tirets et des tableaux markdown pour chaque section.\n"
+            f"{'═'*60}\n"
         )
 
 
@@ -807,9 +819,25 @@ def collect_and_build_prompts() -> dict:
     p_top       = builder.build_top_items_prompt(top_items)
     p_prices    = builder.build_item_prices_prompt(item_prices)
     p_suppliers = builder.build_suppliers_prompt(suppliers, invoices)
-    p_final     = builder.build_final_synthesis_prompt([
-        p_stock, p_purchases, p_sales, p_top, p_prices, p_suppliers
-    ])
+    # ── Liste exacte des noms autorisés ──
+    # On extrait les vrais noms depuis les données brutes
+    # et on les injecte dans le prompt pour bloquer les hallucinations
+
+    noms_fournisseurs = list(set([
+        s.get("supplier_name") or s.get("name","")
+        for s in suppliers if s.get("name")
+    ]))
+    noms_articles = list(set([
+        b.get("item_code","")
+        for b in low_stock if b.get("item_code")
+    ]))
+    noms_clients = []  # sera rempli si Sales Order disponible
+
+    p_final = builder.build_final_synthesis_prompt(
+        all_sections=[p_stock, p_purchases, p_sales, p_top, p_prices, p_suppliers],
+        noms_fournisseurs=noms_fournisseurs,
+        noms_articles=noms_articles,
+    )
 
     log.info("=" * 55)
     log.info("COLLECTE TERMINÉE")
@@ -834,6 +862,12 @@ def collect_and_build_prompts() -> dict:
             "item_prices": item_prices,
             "suppliers":   suppliers,
             "invoices":    invoices,
+            "all_items":   client._get(
+                doctype="Item",
+                filters=[["disabled","=",0],["is_stock_item","=",1]],
+                fields=["name","item_name","item_group"],
+                limit=50
+            ),
         }
     }
 
