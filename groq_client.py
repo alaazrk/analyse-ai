@@ -382,4 +382,4 @@ Donne :
     print("SYNTHÈSE FINALE DE QWEN3 (via Groq) :")
     print("=" * 60)
     print(rapport["final_report"])
-    print("\n Test terminé — vérifie le dossier reports/")
+    print("\n✅ Test terminé — vérifie le dossier reports/")
